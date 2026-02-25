@@ -1,10 +1,17 @@
-<!-- Updated: 2026-02-08 -->
+<!-- Updated: 2026-02-25 -->
 
 ![Claude SEO](screenshots/cover-image.jpeg)
 
-# Claude SEO
+# SEO · AEO · GEO · AgEO · WebMCP (Claude Code Skill)
 
-Comprehensive SEO analysis skill for Claude Code. Covers technical SEO, on-page analysis, content quality (E-E-A-T), schema markup, image optimization, sitemap architecture, AI search optimization (GEO), and strategic planning.
+Universal visibility optimisation skill for Claude Code across:
+- **SEO** (traditional search: Google/Bing)
+- **AEO** (answer engines)
+- **GEO** (generative engines: AI Overviews + AI search)
+- **AgEO** (agentic engines: autonomous agents)
+- **WebMCP** (browser-native agent tool surfaces; early preview Feb 2026)
+
+This repo provides a full-spectrum analysis framework covering technical SEO, on-page analysis, E-E-A-T, schema markup, image optimisation, sitemap architecture, programmatic SEO, competitor pages, hreflang, platform-specific GEO (major AI platforms), MCP/agentic tool discoverability, brand data-hygiene, cite-check validation, answer-pack generation, and grounding page generation.
 
 ![SEO Command Demo](screenshots/seo-command-demo.gif)
 
@@ -45,16 +52,29 @@ claude
 # Analyze a single page
 /seo page https://example.com/about
 
+# Technical audit
+/seo technical https://example.com
+
 # Check schema markup
 /seo schema https://example.com
 
 # Generate a sitemap
 /seo sitemap generate
 
-# Optimize for AI search
+# GEO (Generative Engine Optimisation)
 /seo geo https://example.com
+
+# AEO (Answer Engine Optimisation)
+/seo aeo https://example.com
+
+# AgEO (Agentic Engine Optimisation)
+/seo ageo https://example.com
+
+# Validate if a page is citation-ready
+/seo cite-check https://example.com
 ```
-### Demo:
+
+### Demo
 [Watch the full demo on YouTube](https://www.youtube.com/watch?v=COMnNlUakQk)
 
 **`/seo audit` — full site audit with parallel subagents:**
@@ -64,125 +84,74 @@ claude
 ## Commands
 
 | Command | Description |
-|---------|-------------|
+|---|---|
 | `/seo audit <url>` | Full website audit with parallel subagent delegation |
 | `/seo page <url>` | Deep single-page analysis |
-| `/seo sitemap <url>` | Analyze existing XML sitemap |
-| `/seo sitemap generate` | Generate new sitemap with industry templates |
-| `/seo schema <url>` | Detect, validate, and generate Schema.org markup |
-| `/seo images <url>` | Image optimization analysis |
 | `/seo technical <url>` | Technical SEO audit (8 categories) |
 | `/seo content <url>` | E-E-A-T and content quality analysis |
-| `/seo geo <url>` | AI Overviews / Generative Engine Optimization |
-| `/seo plan <type>` | Strategic SEO planning (saas, local, ecommerce, publisher, agency) |
+| `/seo schema <url>` | Detect, validate, and generate Schema.org markup |
+| `/seo images <url>` | Image optimisation analysis |
+| `/seo sitemap <url>` | Analyse existing XML sitemap |
+| `/seo sitemap generate` | Generate new sitemap with industry templates |
+| `/seo geo <url>` | Generative Engine Optimisation audit (multi-platform) |
+| `/seo geo --mcp <url>` | MCP / agentic tool visibility audit |
+| `/seo aeo <url>` | Answer Engine Optimisation audit |
+| `/seo brand-radar <brand>` | Brand data-hygiene and citation consistency audit |
+| `/seo ageo <url>` | Agentic Engine Optimisation audit |
+| `/seo ageo --webmcp <url>` | WebMCP implementation audit + tool generation guidance |
+| `/seo cite-check <url>` | Validate whether a page qualifies for AI citation |
+| `/seo answer-pack <topic>` | Generate a full AI-answer content bundle for a topic |
+| `/seo grounding-page <topic>` | Generate a Grounding Page (Standard v1.5) |
+| `/seo profile init` | Create/update `project_profile.yml` (personalisation + overrides) |
+| `/seo profile show` | Show active profile and applied overrides |
+| `/seo plan <type>` | Strategic planning (saas, local, ecommerce, publisher, agency) |
 | `/seo programmatic <url>` | Programmatic SEO analysis and planning |
 | `/seo competitor-pages <url>` | Competitor comparison page generation |
-| `/seo hreflang <url>` | Hreflang/i18n SEO audit and generation |
-
-### `/seo programmatic [url|plan]`
-**Programmatic SEO Analysis & Planning**
-
-Build SEO pages at scale from data sources with quality safeguards.
-
-**Capabilities:**
-- Analyze existing programmatic pages for thin content and cannibalization
-- Plan URL patterns and template structures for data-driven pages
-- Internal linking automation between generated pages
-- Canonical strategy and index bloat prevention
-- Quality gates: ⚠️ WARNING at 100+ pages, 🛑 HARD STOP at 500+ without audit
-
-### `/seo competitor-pages [url|generate]`
-**Competitor Comparison Page Generator**
-
-Create high-converting "X vs Y" and "alternatives to X" pages.
-
-**Capabilities:**
-- Structured comparison tables with feature matrices
-- Product schema markup with AggregateRating
-- Conversion-optimized layouts with CTA placement
-- Keyword targeting for comparison intent queries
-- Fairness guidelines for accurate competitor representation
-
-### `/seo hreflang [url]`
-**Hreflang / i18n SEO Audit & Generation**
-
-Validate and generate hreflang tags for multi-language sites.
-
-**Capabilities:**
-- Generate hreflang tags (HTML, HTTP headers, or XML sitemap)
-- Validate self-referencing tags, return tags, x-default
-- Detect common mistakes (missing returns, invalid codes, HTTP/HTTPS mismatch)
-- Cross-domain hreflang support
-- Language/region code validation (ISO 639-1 + ISO 3166-1)
+| `/seo hreflang <url>` | Hreflang / i18n SEO audit and generation |
 
 ## Features
 
 ### Core Web Vitals (Current Metrics)
-- **LCP** (Largest Contentful Paint): Target < 2.5s
-- **INP** (Interaction to Next Paint): Target < 200ms
-- **CLS** (Cumulative Layout Shift): Target < 0.1
+- **LCP** (Largest Contentful Paint): target < 2.5s
+- **INP** (Interaction to Next Paint): target < 200ms
+- **CLS** (Cumulative Layout Shift): target < 0.1
 
 > Note: INP replaced FID on March 12, 2024. FID was fully removed from all Chrome tools on September 9, 2024.
 
 ### E-E-A-T Analysis
 Updated to September 2025 Quality Rater Guidelines:
-- **Experience**: First-hand knowledge signals
-- **Expertise**: Author credentials and depth
-- **Authoritativeness**: Industry recognition
-- **Trustworthiness**: Contact info, security, transparency
+- **Experience**: first-hand knowledge signals
+- **Expertise**: author credentials and depth
+- **Authoritativeness**: industry recognition
+- **Trustworthiness**: contact info, security, transparency
 
 ### Schema Markup
 - Detection: JSON-LD (preferred), Microdata, RDFa
-- Validation against Google's supported types
+- Validation against supported types
 - Generation with templates
-- Deprecation awareness:
-  - HowTo: Deprecated (Sept 2023)
-  - FAQ: Restricted to gov/health sites (Aug 2023)
-  - SpecialAnnouncement: Deprecated (July 2025)
+- Deprecation awareness (e.g., HowTo deprecated Sept 2023; FAQ restricted Aug 2023)
 
-### AI Search Optimization (GEO)
-New for 2026 - optimize for:
-- Google AI Overviews
-- ChatGPT web search
-- Perplexity
-- Other AI-powered search
-
-### Quality Gates
-- Warning at 30+ location pages
-- Hard stop at 50+ location pages
-- Thin content detection per page type
-- Doorway page prevention
+### GEO / AEO / AgEO / WebMCP
+- Platform-specific optimisation guidance across major AI answer and agent surfaces
+- Citability validation (`/seo cite-check`)
+- Answer bundle generation (`/seo answer-pack`)
+- Grounding Page generation (`/seo grounding-page`)
+- MCP discoverability (`/seo geo --mcp`)
+- WebMCP implementation guidance (`/seo ageo --webmcp`)
 
 ## Architecture
 
 ```
 ~/.claude/skills/seo/         # Main skill
-~/.claude/skills/seo-*/       # Sub-skills (12 total)
-~/.claude/agents/seo-*.md     # Subagents (6 total)
+~/.claude/skills/seo-*/       # Sub-skills
+~/.claude/agents/seo-*.md     # Subagents
 ```
-
-### Video & Live Schema (New)
-Additional schema types for video content, live streaming, and key moments:
-- VideoObject — Video page markup with thumbnails, duration, upload date
-- BroadcastEvent — LIVE badge support for live streaming content
-- Clip — Key moments / chapters within videos
-- SeekToAction — Enable seek functionality in video rich results
-- SoftwareSourceCode — Open source and code repository pages
-
-See `schema/templates.json` for ready-to-use JSON-LD snippets.
-
-### Recently Added
-- Programmatic SEO skill (`/seo programmatic`)
-- Competitor comparison pages skill (`/seo competitor-pages`)
-- Multi-language hreflang validation (`/seo hreflang`)
-- Video & Live schema types (VideoObject, BroadcastEvent, Clip, SeekToAction)
-- Google SEO quick-reference guide
 
 ## Requirements
 
 - Python 3.8+
 - Claude Code CLI
-- Optional: Playwright for screenshots
+- Optional: Playwright (for screenshots)
 
 ## Uninstall
 
@@ -212,4 +181,4 @@ Contributions welcome! Please read the guidelines in `docs/` before submitting P
 
 ---
 
-Built for Claude Code by [@AgriciDaniel](https://github.com/AgriciDaniel)
+Built for Claude Code.
