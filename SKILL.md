@@ -1,25 +1,32 @@
-# SEO AEO GEO AGEO WEBMCP Skills
+---
+title: SEO · AEO · GEO · AgEO · WebMCP Skill
+version: 3.0.0
+date: 2026-02-25
+---
 
-This document outlines the skills related to the SEO AEO GEO AGEO WEBMCP project, including key features, commands, and installation instructions.
+# Introduction
+This document outlines the skills associated with SEO, AEO, GEO, AgEO, and WebMCP.
 
-## Key Features
-- Powerful SEO tools to enhance visibility.
-- AEO features for optimized engagement.
-- GEO capabilities for geographical targeting.
-- AGEO for analyzing and interpreting data effectively.
+## SEO Skills
+1. Keyword Research
+2. On-page Optimization
+3. Off-page Optimization
 
-## Installation Instructions
-1. Clone the repository: `git clone https://github.com/marcofernandez007/claude-seo-aeo-geo-ageo-webmcp-2.0.git`
-2. Navigate into the project directory: `cd claude-seo-aeo-geo-ageo-webmcp-2.0`
-3. Install dependencies: `npm install`
+## AEO Skills
+1. Algorithm Understanding
+2. Data Analysis
 
-## Commands
-- To start the server: `npm run start`
-- To build the project: `npm run build`
-- To run tests: `npm test`
+## GEO Skills
+1. Geographic Targeting
+2. Local SEO Techniques
 
-## Architecture/Manifest
-This section provides an overview of the project's architecture, outlining core components and their interactions. The skills are structured to facilitate optimized performance and ease of use, ensuring that all features work cohesively to deliver enhanced SEO and AEO performance.
+## AgEO Skills
+1. Engagement Analytics
+2. Emotional Metrics
 
-## Version
-- Current Skill Version: 3.0.0
+## WebMCP Skills
+1. Web Content Strategy
+2. Performance Metrics
+
+# Conclusion
+This skill specification serves to guide professionals in the fields of SEO, AEO, GEO, AgEO, and WebMCP.
