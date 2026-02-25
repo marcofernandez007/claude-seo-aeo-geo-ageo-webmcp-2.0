@@ -1,37 +1,24 @@
-# Claude SEO AEO GEAO Web MCP
+# Your README content with updated URLs goes here.
 
 ## Installation
 
-Follow these steps to install:
+For installation, run the following commands:
 
-1. Clone this repository:
-
-   ```sh
-   git clone https://github.com/marcofernandez007/claude-seo-aeo-geo-ageo-webmcp-2.0.git
-   ```
-
-2. Navigate to the directory:
-
-   ```sh
-   cd claude-seo-aeo-geo-ageo-webmcp-2.0
-   ```
-
-3. Run the installation script:
-
-   ```sh
-   bash install.sh
-   ```
-
-### Install Script
-
-For Linux users, use the following command to install:
-```sh
-curl -s -L https://github.com/marcofernandez007/claude-seo-aeo-geo-ageo-webmcp-2.0/raw/main/install.sh | bash
+```bash
+curl -O https://raw.githubusercontent.com/marcofernandez007/claude-seo-aeo-geo-ageo-webmcp-2.0/main/install.sh
+bash install.sh
 ```
 
-### Uninstall Script
+For Windows users:
+```powershell
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/marcofernandez007/claude-seo-aeo-geo-ageo-webmcp-2.0/main/install.ps1 -OutFile install.ps1
+.\install.ps1
+```
 
-To uninstall:
-```sh
-curl -s -L https://github.com/marcofernandez007/claude-seo-aeo-geo-ageo-webmcp-2.0/raw/main/uninstall.sh | bash
+## Uninstallation
+
+To uninstall, run:
+
+```bash
+bash https://raw.githubusercontent.com/marcofernandez007/claude-seo-aeo-geo-ageo-webmcp-2.0/main/uninstall.sh
 ```
