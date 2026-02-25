@@ -1,0 +1,215 @@
+# project_profile.example.yml — SEO · AEO · GEO Skill (Standard v1.5)
+#
+# THIS IS THE REFERENCE / EXAMPLE FILE.
+# It lives at: ~/.claude/skills/seo/configs/project_profile.example.yml
+# It is NEVER loaded automatically by the orchestrator.
+#
+# TO USE:
+#   cp ~/.claude/skills/seo/configs/project_profile.example.yml ./project_profile.yml
+#   Fill in your brand details below.
+#   The orchestrator reads ONLY ./project_profile.yml (project root).
+#
+# ONE SCHEMA. ONE LOCATION. No configs/project_profile.yml in your project.
+# ────────────────────────────────────────────────────────────────────────────
+
+# ── BRAND IDENTITY ──────────────────────────────────────────────────────────
+brand:
+  # REQUIRED. Exact canonical brand name. Used verbatim in all outputs.
+  # If your brand name has a specific capitalisation (e.g. "iPhone"), put it here exactly.
+  name: "Your Brand Name"
+
+  # REQUIRED. Official tagline or value proposition (1 sentence).
+  # Used in brand consistency checks across the web.
+  tagline: "One sentence that explains what you do."
+
+  # REQUIRED. 1–2 paragraph plain-English description of the brand.
+  # No marketing language. Used in Grounding Page generation and AEO outputs.
+  description: >
+    Your Brand is a [business type] that [primary function]. Founded in [year]
+    by [founder name], it serves [target audience] by [how it solves the problem].
+
+  # REQUIRED.
+  founding_year: 2020
+
+  # REQUIRED. ISO 3166-1 Alpha-2 country code of headquarters.
+  hq_country: "US"
+
+  # REQUIRED. Languages your content is published in.
+  # Used to scope hreflang checks and content audits.
+  # ISO 639-1 codes: "en", "de", "fr", "es", "nl", etc.
+  languages: ["en"]
+
+# ── BUSINESS TYPE ────────────────────────────────────────────────────────────
+business:
+  # REQUIRED.
+  # saas | local | ecommerce | publisher | agency | marketplace
+  type: saas
+
+  # REQUIRED.
+  # b2b | b2c | b2b2c | marketplace
+  model: b2b
+
+  # REQUIRED. Freeform industry label.
+  # Used to calibrate E-E-A-T benchmarks, competitor context, and GEO platform priorities.
+  # Examples: "fintech", "logistics-tech", "health-saas", "legal-services", "D2C-apparel"
+  industry: "your-industry"
+
+  # REQUIRED.
+  # seed | growth | scale | enterprise
+  stage: growth
+
+# ── TARGET AUDIENCE ──────────────────────────────────────────────────────────
+audience:
+  # REQUIRED. Describe the primary persona in plain English.
+  # Used to calibrate tone, reading level, and AEO query targeting.
+  primary_persona: "Job Title at a [company type]"
+
+  # REQUIRED.
+  # beginner | intermediate | expert
+  # Controls Flesch-Kincaid targets and assumed knowledge level in content audits.
+  technical_level: intermediate
+
+  # REQUIRED. Which stage of the buyer journey to prioritise for content and AEO.
+  # awareness | consideration | decision | retention
+  decision_stage_focus: consideration
+
+  # OPTIONAL. Geographic markets for content and hreflang scope.
+  # Use region names ("DACH", "Benelux") or country codes ("DE", "US", "GB").
+  geography: ["US", "GB"]
+
+# ── COMPETITIVE LANDSCAPE ────────────────────────────────────────────────────
+competitors:
+  # REQUIRED. List your 2–3 primary direct competitors.
+  # Used in competitor-pages generation and AEO differentiation queries.
+  primary:
+    - name: "Competitor A"
+      url: "https://competitora.com"
+    - name: "Competitor B"
+      url: "https://competitorb.com"
+
+  # REQUIRED. Factual, evidence-backed differentiation statement (≤150 words).
+  # No superlatives. Must compare to named alternatives.
+  # Used in AEO recommendation queries and Grounding Page Section 4.
+  differentiation: >
+    Unlike Competitor A (which targets enterprise with custom pricing), Your Brand
+    serves [segment] with [specific differentiator]. Unlike Competitor B, Your Brand
+    [specific technical or commercial difference].
+
+# ── SEO CONFIGURATION ────────────────────────────────────────────────────────
+seo:
+  # REQUIRED. Full URL of the primary domain including https://.
+  primary_domain: "https://yourdomain.com"
+
+  # REQUIRED. CMS or framework.
+  # wordpress | webflow | next.js | nuxt | gatsby | hugo | shopify | custom
+  cms: "webflow"
+
+  # REQUIRED. Top 3–5 primary keywords / topics for this project.
+  # Used to scope keyword gap analysis and content cluster mapping.
+  primary_keywords:
+    - "your primary keyword"
+    - "your secondary keyword"
+    - "your tertiary keyword"
+
+  # OPTIONAL. Broader topic clusters to build content authority around.
+  content_cluster_topics:
+    - "supporting topic 1"
+    - "supporting topic 2"
+    - "supporting topic 3"
+
+  # OPTIONAL. URL path prefixes to exclude from all audits.
+  # The orchestrator skips these paths entirely.
+  excluded_urls:
+    - "/internal/"
+    - "/staging/"
+    - "/admin/"
+
+# ── GEO CONFIGURATION ────────────────────────────────────────────────────────
+geo:
+  # REQUIRED. Which AI platforms to prioritise in GEO analysis and reporting.
+  # Valid values: chatgpt | perplexity | gemini | google_ai_overviews | copilot | grok | meta_ai | claude
+  target_platforms:
+    - chatgpt
+    - perplexity
+    - gemini
+    - google_ai_overviews
+
+  # REQUIRED.
+  # true  → skill optimises for AI crawler access (recommended)
+  # false → skill generates robots.txt blocks to restrict AI crawlers instead
+  allow_ai_crawlers: true
+
+  # OPTIONAL. URL of your brand's MCP server (if you have one).
+  # Leave blank ("") if not applicable. Used in /seo geo --mcp audit.
+  mcp_server_url: ""
+
+  # REQUIRED. Path on your domain where the Grounding Page lives (or will live).
+  # This path is checked for crawlability and schema compliance.
+  # Recommended values: "/about/ai-grounding" or "/ai-reference"
+  grounding_page_path: "/about/ai-grounding"
+
+# ── AEO CONFIGURATION ────────────────────────────────────────────────────────
+aeo:
+  # REQUIRED. Top 3–5 conversational queries you want AI assistants to recommend
+  # you for. Write them as a real user would type them into ChatGPT or Claude.
+  priority_queries:
+    - "What is the best [category] for [use case]?"
+    - "How does [Your Brand] compare to [Competitor A]?"
+    - "Is [Your Brand] trustworthy?"
+    - "Who should I use for [service]?"
+
+  # OPTIONAL but high-impact. Full URL of your Wikipedia article if one exists.
+  # Leave blank ("") if none. Run /seo brand-radar to check if one should be created.
+  wikipedia_url: ""
+
+  # OPTIONAL but high-impact. Your Wikidata entity ID (e.g. "Q12345678").
+  # Leave blank ("") if none.
+  wikidata_id: ""
+
+# ── CONTENT & TONE ───────────────────────────────────────────────────────────
+content:
+  # REQUIRED.
+  # formal | professional-but-approachable | conversational | technical
+  tone: professional-but-approachable
+
+  # REQUIRED. Target reading level for all content.
+  # beginner | intermediate | expert
+  # Maps to Flesch-Kincaid grade level targets in content audits.
+  reading_level: intermediate
+
+  # OPTIONAL. Specific phrases to flag and reject in content audits.
+  # Extend this list with your brand's avoid-list.
+  avoid_phrases:
+    - "cutting-edge"
+    - "game-changing"
+    - "synergy"
+    - "leverage"
+    - "world-class"
+    - "innovative solution"
+
+  # OPTIONAL. Legal or compliance disclaimers that must appear on certain pages.
+  # Leave as empty list ([]) if no requirements.
+  required_disclaimers: []
+
+# ── OUTPUT PREFERENCES ───────────────────────────────────────────────────────
+output:
+  # OPTIONAL.
+  # markdown | json | plain
+  default_format: markdown
+
+  # OPTIONAL. Include code snippets (schema JSON-LD, robots.txt directives,
+  # hreflang tags, etc.) in audit outputs.
+  include_code_snippets: true
+
+  # OPTIONAL.
+  # inline | footnote
+  citation_style: inline
+
+  # OPTIONAL. Maximum number of action items per audit section.
+  # Keeps outputs focused. Set higher (20+) for comprehensive audits.
+  max_priority_items: 10
+
+  # REQUIRED. Activates the Generic Output Blocker (Part 10 of SKILL.md).
+  # When true, Claude validates every output against the profile before delivering it.
+  # Set false only for quick/generic checks where brand context is not needed.
+  block_generic_outputs: true
